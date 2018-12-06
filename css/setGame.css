@@ -44,18 +44,19 @@ body{
 .deer {
     background-image: url(../images/reindeer.png);
     background-position: center center;
-    background-size:cover;
+    background-size:contain;
     background-repeat: no-repeat;
     
 }
 .snowman {
     background-image: url(../images/snowman.png);
     background-position: center center;
-    background-size:cover;
+    background-size:contain;
     background-repeat: no-repeat;
 }
 .menorah {
     background-image: url(../images/big-menorah.png);
+    background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -73,10 +74,13 @@ body{
     
 }
 .solid {
-    border: 2px solid black;
+    border-style: dashed;
+    width: 50px;
+    height: 65px;
+    border-radius: 50%;
+
 }
 .striped {
-    border-style: dotted;
     border-radius: 50%;
     border: 2px solid black;
 }

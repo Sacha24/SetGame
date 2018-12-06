@@ -46,11 +46,11 @@ function isMatch(card1, card2, card3) {
     card2.color != card3.color ? null : diffColor++;
     card1.color != card3.color ? null : diffColor++;
 
-    card1.shading != card2.shading ? null : diffShading++;
-    card2.shading != card3.shading ? null : diffShading++;
-    card1.shading != card3.shading ? null : diffShading++;
+    card1.border != card2.border ? null : diffborder++;
+    card2.border != card3.border ? null : diffborder++;
+    card1.border != card3.border ? null : diffborder++;
 
-    if(diffColor + diffSymbol + diffShape +diffShading == 0 || diffColor + diffSymbol + diffShape + diffShading == 12) {
+    if(diffColor + diffSymbol + diffShape +diffborder == 0 || diffColor + diffSymbol + diffShape + diffborder == 12) {
         return true;
     } else {
         return false;
