@@ -81,7 +81,7 @@ body{
     border: 2px solid black;
 }
 
-.clicked:hover{
+.clicked{
     opacity:0.5;
     border: 4px solid red;
 }
