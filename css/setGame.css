@@ -37,9 +37,6 @@ body{
     height: 50px;
     display:inline-block;
     margin: 1%;
-    border-radius: 10%;
-    
-
 }
 .deer {
     background-image: url(../images/reindeer.png);
@@ -75,6 +72,8 @@ body{
 }
 .solid {
     border-style: dashed;
+    border-width: 2px;
+    border-color: aliceblue;
     width: 50px;
     height: 65px;
     border-radius: 50%;
