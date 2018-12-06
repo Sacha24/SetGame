@@ -45,5 +45,10 @@ function isMatch(card1, card2, card3) {
     if ((card1.shading === card2.shading && card2.shading === card3.shading) || (card1.shading !== card2.shading && card1.shading !== card3.shading && card2.shading !== card3.shading)) {
         counter++;
     }
+    if (counter === 4) {
+        alert("You found a set!")
+    } else {
+        alert("Not a set!")
+    }
     return counter === 4;
 }
