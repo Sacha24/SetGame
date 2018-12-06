@@ -9,7 +9,7 @@ class Shape extends React.Component {
     }
     render () {
         return (
-            <div className="shape" symbol = {this.props.symbol} color = {this.props.color} shading = {this.props.shading}></div>
+            <div className={`shape ${this.state.symbol} ${this.state.color} ${this.state.shading}`} symbol = {this.state.symbol} color = {this.state.color} shading = {this.state.shading}></div>
         )
     }
 }
@@ -17,7 +17,7 @@ class Header extends React.Component {
     render () {
         return (
             <div>
-                <h1>Welcome to the Set Game</h1>
+                <h1>Hanuka Set Game</h1>
             </div>
         )
     }
@@ -30,11 +30,15 @@ class Card extends React.Component {
         }
     }
     render() {
-        const shapes = this.props.shapeNumber.map(
-            () => <Shape symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>
+        var shapesArray = new Array(this.state.shapeNumber);
+        for(var i=0; i < this.state.shapeNumber; i++) {
+            shapesArray[i] = i;
+        }
+        const shapes =shapesArray.map(
+            (content) => <Shape key={content} symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>
         );
         return (
-            <div className='card'>
+            <div className={`card ${this.props.color}`}>
                 {shapes}
             </div>
         );
@@ -45,12 +49,72 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cardArray: this.props.cardArray
+            cardArray: [{
+                shapeNumber: 1,
+                symbol: 'menorah',
+                color: 'purple',
+                shading: 'solid'
+            }, {
+                shapeNumber: 2,
+                symbol: 'snowman',
+                color: 'green',
+                shading: 'striped'
+            }, {
+                shapeNumber: 3,
+                symbol: 'deer',
+                color: 'red',
+                shading: 'open'
+            }, {
+                shapeNumber: 1,
+                symbol: 'deer',
+                color: 'green',
+                shading: 'striped'
+            }, {
+                shapeNumber: 3,
+                symbol: 'snowman',
+                color: 'purple',
+                shading: 'solid'
+            }, {
+                shapeNumber: 2,
+                symbol: 'deer',
+                color: 'purple',
+                shading: 'open'
+            }, {
+                shapeNumber: 3,
+                symbol: 'menorah',
+                color: 'green',
+                shading: 'striped'
+            }, {
+                shapeNumber: 1,
+                symbol: 'snowman',
+                color: 'red',
+                shading: 'open'
+            }, {
+                shapeNumber: 2,
+                symbol: 'menorah',
+                color: 'purple',
+                shading: 'striped'
+            }, {
+                shapeNumber: 3,
+                symbol: 'deer',
+                color: 'green',
+                shading: 'solid'
+            }, {
+                shapeNumber: 2,
+                symbol: 'snowman',
+                color: 'purple',
+                shading: 'open'
+            }, {
+                shapeNumber: 1,
+                symbol: 'menorah',
+                color: 'purple',
+                shading: 'solid'
+            }]
         }
     }
     render() {
-        const cards = this.props.cardArray.map(
-            (card) => <Card key={card} id={card} shapeNumber={this.state.cardArray} symbol={"diamonds"} color={"purple"} shading={"striped"} />
+        const cards = this.state.cardArray.map(
+            (card, index) => <Card key={index} objId={card} shapeNumber={card.shapeNumber} symbol={card.symbol} color={card.color} shading={card.shading} />
         )
         return (
             <div id="board">
@@ -59,19 +123,44 @@ class Board extends React.Component {
         );
     }
 }
+class CompletedSets extends React.Component {
+    constructor (props) {
+        super (props)
+    }
+    render () {
+        const matchedSets = this.props.set.map(
+            (card) => <span key = {card}>{card}</span>
+        )
+        return (
+            <div>
+                {matchedSets}
+            </div>
+        )
+    }
+
+}
 class App extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor (props) {
+        super (props)
+        this.copyCompleted = this.copyCompleted.bind(this);
+        this.setArray = [];
         this.state = {
-            cardArray: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+            completed: []
         }
+    }
+    copyCompleted (completedSet) {
+        var newArray = this.state.completed.slice();
+        newArray.push(completedSet)
+        this.setState ( {
+            completed: newArray
+        })
     }
     render() {
         return (
             <div>
                 <Header></Header>
-                <Board cardArray={this.state.cardArray}></Board>
-                {/* <CompletedSets></CompletedSets> */}
+                <Board handleMatch = {this.copyCompleted}></Board>
+                <CompletedSets set = {this.state.completed}></CompletedSets>
             </div>
         );
     }
