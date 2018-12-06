@@ -1,7 +1,13 @@
 body{
-    background-image: url("data:image/jpeg;base64,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");
-    background-size: cover;
+   background-size: cover;
     background-repeat: no-repeat;
+    background-image: url("https://cdn.hipwallpaper.com/i/49/21/puVXYv.jpg");
+}
+    h1 {
+    text-align: center;
+    font-family: 'Charmonman', cursive;
+    font-size: 40px;
+    color:white;
 }
 
 #board {
@@ -23,6 +29,7 @@ body{
     align-items: center;
     display:flex;
     opacity:0.9;
+    background-color:rgb(247, 193, 193);
 }
 
 .card:hover {
@@ -30,7 +37,9 @@ body{
     opacity: 1;
 }
 
-
+.clicked {
+    opacity: 1;
+}
 .shape {
     border: 0.8px black;
     width: 50px;
@@ -52,28 +61,28 @@ body{
     background-repeat: no-repeat;
 }
 .menorah {
-    background-image: url(../images/big-menorah.png);
+    background-image: url(../images/menorah.png);
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
 }
 .red {
-    background-color: red;
+    background-color: rgb(74, 74, 233);
 }
 .green {
     background-color: green;
 }
 .purple {
-    background-color: purple;
+    background-color: salmon;
 }
 .open {
-    border-style: none
+    border-radius: 10%;
     
 }
 .solid {
-    border-style: dashed;
+    border-style: ridge;
     border-width: 2px;
-    border-color: aliceblue;
+    border-color: gold;
     width: 50px;
     height: 65px;
     border-radius: 50%;
@@ -81,10 +90,10 @@ body{
 }
 .striped {
     border-radius: 50%;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
-.clicked:hover{
+.clicked{
     opacity:0.5;
     border: 4px solid red;
 }
