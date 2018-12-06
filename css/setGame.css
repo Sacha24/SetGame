@@ -11,5 +11,37 @@
     width: 20%;
     height: 20%;
     border: 1px solid black;
+}
+.shape {
+    border: 0.8px black;
+    width: 20px;
+    height: 20px;
+}
+.deer {
+    border-radius: 0;
+}
+.snowman {
+    border-radius: 10%;
+}
+.menorah {
+    border-radius: 50%;
+}
+.red {
+    background: red;
+}
+.green {
+    background: green;
+}
+.purple {
+    background: purple;
+}
+.open {
+    border-style: dashed
+}
+.solid {
+    border-style: solid;
+}
+.striped {
+    border-style: dotted;
     margin: 1%
 }
