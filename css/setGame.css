@@ -1,12 +1,13 @@
 body{
    background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("https://thepostsportsbar.com/wp-content/uploads/2012/09/06d8b19a21a3f332e54ef23883be74cb-free-christmas-backgrounds-backgrounds-free.jpg")
+    background-image: url("https://cdn.hipwallpaper.com/i/49/21/puVXYv.jpg");
 }
     h1 {
     text-align: center;
     font-family: 'Charmonman', cursive;
     font-size: 40px;
+    color:white;
 }
 
 #board {
@@ -23,8 +24,12 @@ body{
     width: 22%;
     height: 20%;
     border: 1px solid black;
-    box-shadow: 5px 8px;
+    box-shadow: 5px 6px 6px;
+    justify-content:center;
+    align-items: center;
+    display:flex;
     opacity:0.9;
+    background-color:rgb(247, 193, 193);
 }
 
 .card:hover {
@@ -34,15 +39,16 @@ body{
 
 .clicked {
     opacity: 1;
-
 }
 .shape {
     border: 0.8px black;
     width: 50px;
     height: 50px;
-    display:inline-flex;
+    display:inline-block;
     margin: 1%;
     border-radius: 10%;
+    
+
 }
 .deer {
     background-image: url(../images/reindeer.png);
@@ -63,24 +69,23 @@ body{
     background-repeat: no-repeat;
 }
 .red {
-    background-color: brown;
+    background-color: rgb(74, 74, 233);
 }
 .green {
     background-color: white;
 }
 .purple {
-    background-color: red;
+    background-color: salmon;
 }
 .open {
     border-style: none
     
 }
 .solid {
-    border: 2px solid white;
+    border: 2px solid black;
 }
 .striped {
     border-style: dotted;
     border-radius: 50%;
-    border: 2px solid grey;
-
+    border: 2px solid black;
 }

@@ -26,8 +26,17 @@ class Card extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            shapeNumber: this.props.shapeNumber
+            shapeNumber: this.props.shapeNumber,
+            isClicked: false
         }
+        this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick() {
+        this.setState({
+            isClicked: !this.state.isClicked
+        }, function() {
+            this.props.handleClick(this);    
+        });
     }
     render() {
         var shapesArray = new Array(this.state.shapeNumber);
@@ -38,7 +47,7 @@ class Card extends React.Component {
             (content) => <Shape key={content} symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>
         );
         return (
-            <div className={`card ${this.props.color}`}>
+            <div onClick={this.handleClick} className={`card ${this.state.isClicked === true ? 'clicked' : ''}`}>
                 {shapes}
             </div>
         );
@@ -48,6 +57,7 @@ class Card extends React.Component {
 class Board extends React.Component {
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
         this.state = {
             cardArray: [{
                 shapeNumber: 1,
@@ -109,12 +119,40 @@ class Board extends React.Component {
                 symbol: 'menorah',
                 color: 'purple',
                 shading: 'solid'
-            }]
+            }],
+
+            clickedCards: 0,
+            clickedCardsArray: []
+        }
+    }
+    handleClick(card) {
+        var newArray = this.state.clickedCardsArray.slice();
+        var newCard = card;
+        newArray.push(newCard);
+        this.setState({
+            clickedCards: this.state.clickedCards + 1,
+            clickedCardsArray: newArray
+        });
+    }
+    componentDidUpdate() {
+        if(this.state.clickedCards === 3) {
+            console.log(this.state.clickedCardsArray[0]);
+            console.log(this.state.clickedCardsArray[1]);
+            console.log(this.state.clickedCardsArray[2]);
+            var wasMatch =isMatch(this.state.clickedCardsArray[0], this.state.clickedCardsArray[1], this.state.clickedCardsArray[2] );
+            console.log(wasMatch);
+            if(true) {
+                this.props.handleMatch(this.state.clickedCardsArray);
+            }
+            this.setState({
+                clickedCards: 0,
+                clickedCardsArray: []
+            });
         }
     }
     render() {
         const cards = this.state.cardArray.map(
-            (card, index) => <Card key={index} objId={card} shapeNumber={card.shapeNumber} symbol={card.symbol} color={card.color} shading={card.shading} />
+            (card, index) => <Card handleClick={this.handleClick} key={index} objId={card} shapeNumber={card.shapeNumber} symbol={card.symbol} color={card.color} shading={card.shading} />
         )
         return (
             <div id="board">
