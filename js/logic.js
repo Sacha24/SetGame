@@ -32,35 +32,18 @@ function dispatch() {
     return cardRet;
 }
 function isMatch(card1, card2, card3) {
-    var diffShape = 0;
-    var diffSymbol = 0;
-    var diffColor = 0;
-    var diffborder = 0;
-
-    card1.shapeNumber != card2.shapeNumber ? null : diffShape++;
-    card1.shapeNumber != card3.shapeNumber ? null : diffShape++;
-    card2.shapeNumber != card3.shapeNumber ? null : diffShape++;
-
-    card1.symbol != card2.symbol ? null : diffSymbol++;
-    card2.symbol != card3.symbol ? null : diffSymbol++;
-    card1.symbol != card3.symbol ? null : diffSymbol++;
-
-    card1.color != card2.color ? null : diffColor++;
-    card2.color != card3.color ? null : diffColor++;
-    card1.color != card3.color ? null : diffColor++;
-
-    card1.diffborder != card2.diffborder ? null : diffborder++;
-    card2.diffborder != card3.diffborder ? null : diffborder++;
-    card1.diffborder != card3.diffborder ? null : diffborder++;
-
-    if ((
-        (diffShape == 0 || diffShape == 3) && (diffSymbol == 0 || diffSymbol == 3)
-    ) && (
-            (diffColor == 0 || diffColor == 3) && (diffborder == 0 || diffborder == 3)
-        )
-    ) {
-        return true;
-    } else {
-        return false;
+    var counter = 0;
+    if ((card1.color === card2.color && card2.color === card3.color) || (card1.color !== card2.color && card1.color !== card3.color && card2.color !== card3.color)) {
+        counter++;
     }
+    if ((card1.symbol === card2.symbol && card2.symbol === card3.symbol) || (card1.symbol !== card2.symbol && card1.symbol !== card3.symbol && card2.symbol !== card3.symbol)) {
+        counter++;
+    }
+    if ((card1.shapeNumber === card2.shapeNumber && card2.shapeNumber === card3.shapeNumber) || (card1.shapeNumber !== card2.shapeNumber && card1.shapeNumber !== card3.shapeNumber && card2.shapeNumber !== card3.shapeNumber)) {
+        counter++;
+    }
+    if ((card1.shading === card2.shading && card2.shading === card3.shading) || (card1.shading !== card2.shading && card1.shading !== card3.shading && card2.shading !== card3.shading)) {
+        counter++;
+    }
+    return counter === 4;
 }
