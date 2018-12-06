@@ -6,9 +6,13 @@ class Card extends React.Component {
         }
     }
     render() {
-        // const shapes = this.props.
+        const shapes = this.props.shapeNumber.map(
+            () => <Shape symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>
+        );
         return (
-            <Shape symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>
+            <div>
+                {shapes}
+            </div>
         );
     }
 
