@@ -28,6 +28,18 @@ function isMatch(card1, card2, card3) {
     var diffSymbol = 0;
     var diffColor = 0;
     var diffShading = 0;
+    console.log(card1.shapeNumber);
+    console.log(card1.symbol);
+    console.log(card1.color);
+    console.log(card1.shading);
+    console.log(card2.shapeNumber);
+    console.log(card2.symbol);
+    console.log(card2.color);
+    console.log(card2.shading);
+    console.log(card3.shapeNumber);
+    console.log(card3.symbol);
+    console.log(card3.color);
+    console.log(card3.shading);
 
     card1.shapeNumber != card2.shapeNumber ? null : diffShape++;
     card1.shapeNumber != card3.shapeNumber ? null : diffShape++;
