@@ -9,7 +9,7 @@ class Shape extends React.Component {
     }
     render () {
         return (
-            <div symbol = {this.props.symbol} color = {this.props.color} shading = {this.props.shading}></div>
+            <div className="shape" symbol = {this.props.symbol} color = {this.props.color} shading = {this.props.shading}></div>
         )
     }
 }
@@ -34,7 +34,7 @@ class Card extends React.Component {
             () => <Shape symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>
         );
         return (
-            <div>
+            <div className='card'>
                 {shapes}
             </div>
         );
