@@ -11,13 +11,14 @@
     width: 20%;
     height: 20%;
     border: 1px solid black;
-<<<<<<< HEAD
 }
 .shape {
-    border: 1px black;
+    border: 0.8px black;
+    width: 20px;
+    height: 20px;
 }
 .deer {
-    width: 200px;
+    border-radius: 0;
 }
 .snowman {
     border-radius: 10%;
@@ -41,8 +42,6 @@
     border-style: solid;
 }
 .striped {
-    border-style: ridge;
-=======
+    border-style: dotted;
     margin: 1%
->>>>>>> 6289c167609d8b61c2838a412c92e11126f33039
 }
