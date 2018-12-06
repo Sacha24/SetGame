@@ -58,3 +58,6 @@
 .striped {
     border-style: dotted;
 }
+.clicked {
+    background: white;
+}
