@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class Shape extends React.Component {
     constructor(props) {
         super(props)
@@ -31,7 +30,6 @@ function render() {
     );
 }
 render();
-=======
 class Card extends React.Component {
     constructor(props) {
         super(props);
@@ -86,4 +84,3 @@ ReactDOM.render(
     <App />,
     document.getElementById("root")
 );
->>>>>>> b2798bcd5afcebba3ffce89f698c7ddf3dc35fa0
