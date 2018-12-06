@@ -9,3 +9,33 @@
     height: 50px;
     border: 1px solid black;
 }
+.shape {
+    border: 1px black;
+}
+.deer {
+    width: 200px;
+}
+.snowman {
+    border-radius: 10%;
+}
+.menorah {
+    border-radius: 50%;
+}
+.red {
+    background: red;
+}
+.green {
+    background: green;
+}
+.purple {
+    background: purple;
+}
+.open {
+    border-style: dashed
+}
+.solid {
+    border-style: solid;
+}
+.striped {
+    border-style: ridge;
+}

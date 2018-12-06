@@ -9,7 +9,7 @@ class Shape extends React.Component {
     }
     render () {
         return (
-            <div className="shape" symbol = {this.state.symbol} color = {this.state.color} shading = {this.state.shading}></div>
+            <div className={`shape ${this.state.symbol} ${this.state.color} ${this.state.shading}`} symbol = {this.state.symbol} color = {this.state.color} shading = {this.state.shading}></div>
         )
     }
 }
@@ -32,9 +32,6 @@ class Card extends React.Component {
     render() {
         var i =0;
         var shapeArr = Array(this.state.shapeNumber).fill(<Shape key={i++} symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>);
-        // const shapes = shapeArr.map(
-        //     () => 
-        // );
         return (
             <div className='card'>
                 {shapeArr}
