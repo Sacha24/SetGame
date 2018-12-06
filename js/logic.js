@@ -46,9 +46,21 @@ function isMatch(card1, card2, card3) {
     card2.color != card3.color ? null : diffColor++;
     card1.color != card3.color ? null : diffColor++;
 
+<<<<<<< HEAD
     card1.diffborder != card2.diffborder ? null : diffborder++;
     card2.diffborder != card3.diffborder ? null : diffborder++;
     card1.diffborder != card3.diffborder ? null : diffborder++;
 
     return diffColor + diffSymbol + diffShape +diffborder == 0 ? true : false;
+=======
+    card1.shading != card2.shading ? null : diffShading++;
+    card2.shading != card3.shading ? null : diffShading++;
+    card1.shading != card3.shading ? null : diffShading++;
+
+    if((diffColor + diffSymbol + diffShape +diffShading == 0 || diffSymbol ==3) || (diffShape == 3 || diffColor ==3)) {
+        return true;
+    } else {
+        return false;
+    }
+>>>>>>> 806e7e07c0d27f1de0818310a8ca08e28357dd1c
 }
