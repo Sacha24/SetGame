@@ -123,13 +123,44 @@ class Board extends React.Component {
         );
     }
 }
+class CompletedSets extends React.Component {
+    constructor (props) {
+        super (props)
+    }
+    render () {
+        const matchedSets = this.props.set.map(
+            (card) => <span key = {card}>{card}</span>
+        )
+        return (
+            <div>
+                {matchedSets}
+            </div>
+        )
+    }
+
+}
 class App extends React.Component {
+    constructor (props) {
+        super (props)
+        this.copyCompleted = this.copyCompleted.bind(this);
+        this.setArray = [];
+        this.state = {
+            completed: []
+        }
+    }
+    copyCompleted (completedSet) {
+        var newArray = this.state.completed.slice();
+        newArray.push(completedSet)
+        this.setState ( {
+            completed: newArray
+        })
+    }
     render() {
         return (
             <div>
                 <Header></Header>
-                <Board></Board>
-                {/* <CompletedSets></CompletedSets> */}
+                <Board handleMatch = {this.copyCompleted}></Board>
+                <CompletedSets set = {this.state.completed}></CompletedSets>
             </div>
         );
     }
