@@ -14,8 +14,8 @@
 }
 .shape {
     border: 0.8px black;
-    width: 20px;
-    height: 20px;
+    width: 70px;
+    height: 70px;
 }
 .deer {
     border-radius: 0;
@@ -26,12 +26,14 @@
     
 }
 .snowman {
-    background-image: url('https://image.flaticon.com/icons/svg/1271/1271884.svg');
+    background-image: url(../images/snowman.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 .menorah {
-    border-radius: 50%;
+    background-image: url(../images/big-menorah.png);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .red {
     background-color: red;
