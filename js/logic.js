@@ -1,31 +1,31 @@
 var setGame = {};
-var shapeNumber = [1,2,3,1,2,3,1,2,3,1,2,3];
-var symbol=['menorah','snowman','deer','menorah','snowman','deer','menorah','snowman','deer','menorah','snowman','deer'];
-var color=['red','green','purple','red','green','purple','red','green','purple','red','green','purple'];
-var border=['solid','striped','open','solid','striped','open','solid','striped','open','solid','striped','open']
+var shapeNumber = [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3];
+var symbol = ['menorah', 'snowman', 'deer', 'menorah', 'snowman', 'deer', 'menorah', 'snowman', 'deer', 'menorah', 'snowman', 'deer'];
+var color = ['red', 'green', 'purple', 'red', 'green', 'purple', 'red', 'green', 'purple', 'red', 'green', 'purple'];
+var border = ['solid', 'striped', 'open', 'solid', 'striped', 'open', 'solid', 'striped', 'open', 'solid', 'striped', 'open']
 
-var Cards= dispatch()
+var Cards = dispatch()
 
-function dispatch () {
-    var cardRet=[];
-    for(var i=12;i>0;i--){
+function dispatch() {
+    var cardRet = [];
+    for (var i = 12; i > 0; i--) {
         var cardN = {};
         cardN.shapeNumver = shapeNumber[Math.floor(Math.random() * shapeNumber.length)];
-        var indexShape=shapeNumber.indexOf(cardN.shape);
+        var indexShape = shapeNumber.indexOf(cardN.shape);
         shapeNumber.splice(indexShape, 1);
         cardN.border = border[Math.floor(Math.random() * border.length)];
-        var indexborder=border.indexOf(cardN.border);
+        var indexborder = border.indexOf(cardN.border);
         border.splice(indexborder, 1);
-        cardN.symbol= symbol[Math.floor(Math.random()*symbol.length)];
-        var indexSymbol=symbol.indexOf(cardN.symbol);
+        cardN.symbol = symbol[Math.floor(Math.random() * symbol.length)];
+        var indexSymbol = symbol.indexOf(cardN.symbol);
         symbol.splice(indexSymbol, 1);
-        cardN.color= color[Math.floor(Math.random()*color.length)];
-        var indexColor=color.indexOf(cardN.color);
+        cardN.color = color[Math.floor(Math.random() * color.length)];
+        var indexColor = color.indexOf(cardN.color);
         color.splice(indexColor, 1);
-        if(cardRet.indexOf(cardN)<0){
+        if (cardRet.indexOf(cardN) < 0) {
             cardRet.push(cardN);
         }
-    }return cardRet;
+    } return cardRet;
 
 }
 function isMatch(card1, card2, card3) {
@@ -50,7 +50,7 @@ function isMatch(card1, card2, card3) {
     card2.border != card3.border ? null : diffborder++;
     card1.border != card3.border ? null : diffborder++;
 
-    if(diffColor + diffSymbol + diffShape +diffborder == 0 || diffColor + diffSymbol + diffShape + diffborder == 12) {
+    if (((diffShape == 0 || diffShape == 3) && (diffSymbol == 0 || diffSymbol == 3)) && ((diffColor == 0 || diffColor == 3) && (diffborder == 0 || diffborder == 3))) {
         return true;
     } else {
         return false;
