@@ -47,6 +47,7 @@ body{
     display:inline-block;
     margin: 1%;
     border-radius: 10%;
+    padding:12px;
     
 
 }
@@ -70,7 +71,7 @@ body{
     background-repeat: no-repeat;
 }
 .red {
-    background-color: rgb(74, 74, 233);
+    background-color: rgb(149, 149, 212);
 }
 .green {
     background-color: white;
