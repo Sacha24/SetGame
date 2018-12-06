@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class Shape extends React.Component {
     constructor(props) {
         super(props)
@@ -19,19 +18,10 @@ class Header extends React.Component {
         return (
             <div>
                 <h1>Welcome to the Set Game</h1>
-                <Shape/>
             </div>
         )
     }
 }
-function render() {
-    ReactDOM.render(
-        <Header />,
-        document.getElementById("root")
-    );
-}
-render();
-=======
 class Card extends React.Component {
     constructor(props) {
         super(props);
@@ -55,12 +45,12 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            numOfCards: 12
+            cardArray: this.props.cardArray
         }
     }
     render() {
         const cards = this.props.cardArray.map(
-            (card) => <Card key={card} id={card} shapeNumber={} symbol={} color={} shading={} />
+            (card) => <Card key={card} id={card} shapeNumber={this.state.cardArray} symbol={"diamonds"} color={"purple"} shading={"striped"} />
         )
         return (
             <div id="board">
@@ -73,15 +63,15 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            cardArray: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
         }
     }
     render() {
         return (
             <div>
                 <Header></Header>
-                <Board></Board>
-                <CompletedSets></CompletedSets>
+                <Board cardArray={this.state.cardArray}></Board>
+                {/* <CompletedSets></CompletedSets> */}
             </div>
         );
     }
@@ -90,4 +80,3 @@ ReactDOM.render(
     <App />,
     document.getElementById("root")
 );
->>>>>>> b2798bcd5afcebba3ffce89f698c7ddf3dc35fa0
