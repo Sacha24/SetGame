@@ -49,8 +49,11 @@ body{
     margin: 1%;
     border-radius: 10%;
     padding:12px;
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 1c9392d1ff38c3ee505c90f830fd5674336111ff
 }
 .deer {
     background-image: url(../images/reindeer.png);
@@ -72,7 +75,11 @@ body{
     background-repeat: no-repeat;
 }
 .red {
+<<<<<<< HEAD
     background-color: rgb(149, 149, 212);
+=======
+    background-color: rgb(118, 118, 197);
+>>>>>>> 1c9392d1ff38c3ee505c90f830fd5674336111ff
 }
 .green {
     background-color: green;
