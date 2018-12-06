@@ -48,6 +48,7 @@ class Card extends React.Component {
 class Board extends React.Component {
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
         this.state = {
             cardArray: [{
                 shapeNumber: 1,
@@ -109,12 +110,26 @@ class Board extends React.Component {
                 symbol: 'menorah',
                 color: 'purple',
                 shading: 'solid'
-            }]
+            }],
+
+            clickedCards: 0
+        }
+    }
+    handleClick() {
+        this.setState({
+            clickedCards: this.state.clickedCards + 1
+        });
+    }
+    componentDidUpdate() {
+        if(this.state.clickedCards === 3) {
+            this.setState({
+                clickedCards: 0
+            });
         }
     }
     render() {
         const cards = this.state.cardArray.map(
-            (card, index) => <Card key={index} objId={card} shapeNumber={card.shapeNumber} symbol={card.symbol} color={card.color} shading={card.shading} />
+            (card, index) => <Card onClick={this.handleClick} key={index} objId={card} shapeNumber={card.shapeNumber} symbol={card.symbol} color={card.color} shading={card.shading} />
         )
         return (
             <div id="board">
