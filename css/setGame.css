@@ -19,6 +19,9 @@ body{
     height: 20%;
     border: 1px solid black;
     box-shadow: 5px 8px;
+    justify-content:center;
+    align-items: center;
+    display:flex;
     opacity:0.9;
 }
 
@@ -26,6 +29,7 @@ body{
     cursor: pointer;
     opacity: 1;
 }
+
 
 .shape {
     border: 0.8px black;
