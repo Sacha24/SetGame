@@ -23,21 +23,6 @@ class Header extends React.Component {
         )
     }
 }
-// class CompletedSets extends React.Component {
-//     constructor (props) {
-//         super (props)
-//     }
-    
-//     render () {
-//         return (
-//             <div>
-//                 <span attributes = {this.props.done[0]}></span>
-//                 <span attributes = {this.props.done[1]}></span>
-//                 <span attributes = {this.props.done[2]}></span>
-//             </div>
-//         )
-//     }
-// }
 class Card extends React.Component {
     constructor(props) {
         super(props);
@@ -123,12 +108,9 @@ class Board extends React.Component {
             }]
         }
     }
-    checkState () {
-        
-    }
     render() {
         const cards = this.state.cardArray.map(
-            (card, index) => <Card key={index} objId={card} onClick = {this.checkSet} shapeNumber={[card.shapeNumber]} symbol={card.symbol} color={card.color} shading={card.shading} />
+            (card, index) => <Card key={index} objId={card} shapeNumber={[card.shapeNumber]} symbol={card.symbol} color={card.color} shading={card.shading} />
         )
         return (
             <div id="board">
