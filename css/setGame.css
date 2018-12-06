@@ -11,11 +11,13 @@
     width: 20%;
     height: 20%;
     border: 1px solid black;
+    box-shadow: 5px 8px;
 }
 .shape {
     border: 0.8px black;
     width: 20px;
     height: 20px;
+    display:inline-flex;
 }
 .deer {
     border-radius: 0;
@@ -26,9 +28,7 @@
     
 }
 .snowman {
-    background-image: url('https://image.flaticon.com/icons/svg/1271/1271884.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
+    border-radius: 10%;
 }
 .menorah {
     border-radius: 50%;
