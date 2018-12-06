@@ -9,7 +9,7 @@ var Cards= dispatch()
 function dispatch () {
     var cardRet=[];
     for(var i=12;i>0;i--){
-        var cardN [i] = {};
+        var cardN = {};
         cardN.shapeNumver = shapeNumber[Math.floor(Math.random() * shapeNumber.length)];
         var indexShape=shapeNumber.indexOf(cardN.shape);
         shapeNumber.splice(indexShape, 1);
@@ -50,7 +50,7 @@ function isMatch(card1, card2, card3) {
     card2.shading != card3.shading ? null : diffShading++;
     card1.shading != card3.shading ? null : diffShading++;
 
-    if((diffColor + diffSymbol + diffShape +diffShading == 0 || diffSymbol ==3) || (diffShape == 3 || diffColor ==3)) {
+    if(diffColor + diffSymbol + diffShape +diffShading == 0 || diffColor + diffSymbol + diffShape + diffShading == 12) {
         return true;
     } else {
         return false;
