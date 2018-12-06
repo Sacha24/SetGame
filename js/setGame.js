@@ -33,7 +33,7 @@ class Card extends React.Component {
                 color: this.props.color,
                 shading: this.props.shading
             },
-            isClicked: false
+            isClicked: this.props.isClicked
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -43,6 +43,13 @@ class Card extends React.Component {
         }, function() {
             this.props.handleClick(this.state.cardInformation);    
         });
+    }
+    componentWillReceiveProps(newProps) {
+        if(newProps.isClicked !== this.state.isClicked) {
+            this.setState({
+                isClicked: newProps.isClicked
+            });
+        }
     }
     render() {
         var shapesArray = new Array(this.state.shapeNumber);
@@ -128,7 +135,7 @@ class Board extends React.Component {
             }],
 
             clickedCards: 0,
-            clickedCardsArray: []
+            clickedCardsArray: [],
         }
     }
     handleClick(cardInformation) {
@@ -155,7 +162,7 @@ class Board extends React.Component {
     }
     render() {
         const cards = this.state.cardArray.map(
-            (card, index) => <Card handleClick={this.handleClick} key={index} objId={card} shapeNumber={card.shapeNumber} symbol={card.symbol} color={card.color} shading={card.shading} />
+            (card, index) => <Card isClicked={false} handleClick={this.handleClick} key={index} objId={card} shapeNumber={card.shapeNumber} symbol={card.symbol} color={card.color} shading={card.shading} />
         )
         return (
             <div id="board">
