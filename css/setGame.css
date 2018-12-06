@@ -47,9 +47,13 @@ body{
     height: 50px;
     display:inline-block;
     margin: 1%;
+<<<<<<< HEAD
+=======
     border-radius: 10%;
+    padding:12px;
     
 
+>>>>>>> d8aee6dd99b0a79116d403a69738947be42373e0
 }
 .deer {
     background-image: url(../images/reindeer.png);
@@ -65,26 +69,32 @@ body{
     background-repeat: no-repeat;
 }
 .menorah {
-    background-image: url(../images/big-menorah.png);
+    background-image: url(../images/menorah.png);
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
 }
 .red {
+<<<<<<< HEAD
     background-color: rgb(118, 118, 197);
+=======
+    background-color: rgb(149, 149, 212);
+>>>>>>> 55a394576a855b7f10cea79f9e86d062941361c3
 }
 .green {
-    background-color: white;
+    background-color: green;
 }
 .purple {
     background-color: salmon;
 }
 .open {
-    border-style: none
+    border-radius: 10%;
     
 }
 .solid {
-    border-style: dashed;
+    border-style: ridge;
+    border-width: 2px;
+    border-color: gold;
     width: 50px;
     height: 65px;
     border-radius: 50%;
@@ -92,7 +102,7 @@ body{
 }
 .striped {
     border-radius: 50%;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
 .clicked{
