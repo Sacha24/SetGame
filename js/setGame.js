@@ -156,7 +156,7 @@ class App extends React.Component {
             <div>
                 <Header></Header>
                 <Board handleMatch = {this.copyCompleted}></Board>
-                <CompletedSet set = {this.state.completed}></CompletedSet>
+                <CompletedSets set = {this.state.completed}></CompletedSets>
             </div>
         );
     }
