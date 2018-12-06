@@ -25,6 +25,11 @@ body{
 }
 .deer {
     border-radius: 0;
+    background-image: url(../images/reindeer.png);
+    background-position: center center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    
 }
 .snowman {
     background-image: url('https://image.flaticon.com/icons/svg/1271/1271884.svg');

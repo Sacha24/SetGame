@@ -8,7 +8,6 @@ class Shape extends React.Component {
         }
     }
     render () {
-        console.log(this.state.symbol);
         return (
             <div className={`shape ${this.state.symbol} ${this.state.color} ${this.state.shading}`} symbol = {this.state.symbol} color = {this.state.color} shading = {this.state.shading}></div>
         )
@@ -18,7 +17,7 @@ class Header extends React.Component {
     render () {
         return (
             <div>
-                <h1>Welcome to the Set Game</h1>
+                <h1>Hanuka Set Game</h1>
             </div>
         )
     }
@@ -31,11 +30,16 @@ class Card extends React.Component {
         }
     }
     render() {
-        var i =0;
-        var shapeArr = Array(this.state.shapeNumber).fill(<Shape key={i++} symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>);
+        var shapesArray = new Array(this.state.shapeNumber);
+        for(var i=0; i < this.state.shapeNumber; i++) {
+            shapesArray[i] = i;
+        }
+        const shapes =shapesArray.map(
+            (content) => <Shape key={content} symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>
+        );
         return (
             <div className='card'>
-                {shapeArr}
+                {shapes}
             </div>
         );
     }
@@ -110,7 +114,7 @@ class Board extends React.Component {
     }
     render() {
         const cards = this.state.cardArray.map(
-            (card, index) => <Card key={index} objId={card} shapeNumber={[card.shapeNumber]} symbol={card.symbol} color={card.color} shading={card.shading} />
+            (card, index) => <Card key={index} objId={card} shapeNumber={card.shapeNumber} symbol={card.symbol} color={card.color} shading={card.shading} />
         )
         return (
             <div id="board">
@@ -119,13 +123,44 @@ class Board extends React.Component {
         );
     }
 }
+class CompletedSets extends React.Component {
+    constructor (props) {
+        super (props)
+    }
+    render () {
+        const matchedSets = this.props.set.map(
+            (card) => <span key = {card}>{card}</span>
+        )
+        return (
+            <div>
+                {matchedSets}
+            </div>
+        )
+    }
+
+}
 class App extends React.Component {
+    constructor (props) {
+        super (props)
+        this.copyCompleted = this.copyCompleted.bind(this);
+        this.setArray = [];
+        this.state = {
+            completed: []
+        }
+    }
+    copyCompleted (completedSet) {
+        var newArray = this.state.completed.slice();
+        newArray.push(completedSet)
+        this.setState ( {
+            completed: newArray
+        })
+    }
     render() {
         return (
             <div>
                 <Header></Header>
-                <Board></Board>
-                {/* <CompletedSets></CompletedSets> */}
+                <Board handleMatch = {this.copyCompleted}></Board>
+                <CompletedSets set = {this.state.completed}></CompletedSets>
             </div>
         );
     }
