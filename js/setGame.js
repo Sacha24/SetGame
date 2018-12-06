@@ -53,7 +53,7 @@ class Card extends React.Component {
             (content) => <Shape key={content} symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>
         );
         return (
-            <div onClick={this.handleClick} className={`card ${this.props.color} ${this.state.isClicked === true ? 'clicked' : ''}`}>
+            <div onClick={this.handleClick} className={`card ${this.state.isClicked === true ? 'clicked' : ''}`}>
                 {shapes}
             </div>
         );
