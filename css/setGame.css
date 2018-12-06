@@ -19,21 +19,28 @@
 }
 .deer {
     border-radius: 0;
+    background-image: url(../images/reindeer.png);
+    background-position: center center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    
 }
 .snowman {
-    border-radius: 10%;
+    background-image: url('https://image.flaticon.com/icons/svg/1271/1271884.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .menorah {
     border-radius: 50%;
 }
 .red {
-    background: red;
+    background-color: red;
 }
 .green {
-    background: green;
+    background-color: green;
 }
 .purple {
-    background: purple;
+    background-color: purple;
 }
 .open {
     border-style: dashed
