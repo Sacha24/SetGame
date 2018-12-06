@@ -18,7 +18,7 @@ body{
     width: 22%;
     height: 20%;
     border: 1px solid black;
-    box-shadow: 5px 8px;
+    box-shadow: 5px 6px 6px;
     justify-content:center;
     align-items: center;
     display:flex;
@@ -74,15 +74,12 @@ body{
     
 }
 .solid {
-    border: 2px solid black;
+    border-style: dashed;
     width: 50px;
-    height: 80px;
+    height: 65px;
     border-radius: 50%;
 
 }
 .striped {
-    border-style: dotted;
     border-radius: 50%;
-    border: 2px solid black;
-
 }
