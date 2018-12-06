@@ -112,18 +112,29 @@ class Board extends React.Component {
                 shading: 'solid'
             }],
 
-            clickedCards: 0
+            clickedCards: 0,
+            clickedCardsArray: []
         }
     }
-    handleClick() {
+    handleClick(e) {
+        var newArray = this.state.clickedCardsArray.slice();
+        var newCard = e.target;
+        newArray.push(newCard);
         this.setState({
-            clickedCards: this.state.clickedCards + 1
+            clickedCards: this.state.clickedCards + 1,
+            clickedCardsArray: newArray
         });
     }
     componentDidUpdate() {
         if(this.state.clickedCards === 3) {
+            console.log(thi.state.clickedCardsArray[0]);
+            var wasMatch =isMatch(this.state.clickedCardsArray[0], this.state.clickedCardsArray[1], this.state.clickedCardsArray[2] );
+            if(wasMatch) {
+                this.props.handleMatch(this.state.clickedCardsArray);
+            }
             this.setState({
-                clickedCards: 0
+                clickedCards: 0,
+                clickedCardsArray: []
             });
         }
     }
