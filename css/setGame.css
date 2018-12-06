@@ -19,6 +19,11 @@ body{
     border: 1px solid black;
     box-shadow: 5px 8px;
 }
+
+.card:hover {
+    cursor: pointer;
+
+}
 .shape {
     border: 0.8px black;
     width: 50px;
