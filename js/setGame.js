@@ -71,71 +71,11 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.generated = Cards;
         this.state = {
-            cardArray: [{
-                shapeNumber: 1,
-                symbol: 'menorah',
-                color: 'purple',
-                shading: 'solid'
-            }, {
-                shapeNumber: 2,
-                symbol: 'snowman',
-                color: 'green',
-                shading: 'striped'
-            }, {
-                shapeNumber: 3,
-                symbol: 'deer',
-                color: 'red',
-                shading: 'open'
-            }, {
-                shapeNumber: 1,
-                symbol: 'deer',
-                color: 'green',
-                shading: 'striped'
-            }, {
-                shapeNumber: 3,
-                symbol: 'snowman',
-                color: 'purple',
-                shading: 'solid'
-            }, {
-                shapeNumber: 2,
-                symbol: 'deer',
-                color: 'purple',
-                shading: 'open'
-            }, {
-                shapeNumber: 3,
-                symbol: 'menorah',
-                color: 'green',
-                shading: 'striped'
-            }, {
-                shapeNumber: 1,
-                symbol: 'snowman',
-                color: 'red',
-                shading: 'open'
-            }, {
-                shapeNumber: 2,
-                symbol: 'menorah',
-                color: 'purple',
-                shading: 'striped'
-            }, {
-                shapeNumber: 3,
-                symbol: 'deer',
-                color: 'green',
-                shading: 'solid'
-            }, {
-                shapeNumber: 2,
-                symbol: 'snowman',
-                color: 'purple',
-                shading: 'open'
-            }, {
-                shapeNumber: 1,
-                symbol: 'menorah',
-                color: 'purple',
-                shading: 'solid'
-            }],
-
+            cardArray: this.generated,
             clickedCards: 0,
-            clickedCardsArray: [],
+            clickedCardsArray: []
         }
     }
     handleClick(cardInformation) {
@@ -150,7 +90,6 @@ class Board extends React.Component {
     componentDidUpdate() {
         if(this.state.clickedCards === 3) {
             var wasMatch =isMatch(this.state.clickedCardsArray[0], this.state.clickedCardsArray[1], this.state.clickedCardsArray[2] );
-            console.log('was match is: ' + wasMatch);
             if(wasMatch) {
                 this.props.handleMatch(this.state.clickedCardsArray);
             }
@@ -176,7 +115,6 @@ class CompletedSets extends React.Component {
         super (props)
     }
     render () {
-        console.log(this.props.set);
         const matchedSets = this.props.set.map(
             (cardSet, index) =>
             <div key={index}>
@@ -210,10 +148,8 @@ class App extends React.Component {
         }
     }
     copyCompleted (completedSet) {
-        console.log(completedSet);
         var newArray = this.state.completed.slice();
         newArray.push(completedSet);
-        console.log(newArray);
         this.setState ( {
             completed: newArray
         });

@@ -2,7 +2,7 @@ var setGame = {};
 var shapeNumber = [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3];
 var symbol = ['menorah', 'snowman', 'deer', 'menorah', 'snowman', 'deer', 'menorah', 'snowman', 'deer', 'menorah', 'snowman', 'deer'];
 var color = ['red', 'green', 'purple', 'red', 'green', 'purple', 'red', 'green', 'purple', 'red', 'green', 'purple'];
-var border = ['solid', 'striped', 'open', 'solid', 'striped', 'open', 'solid', 'striped', 'open', 'solid', 'striped', 'open']
+var shading = ['solid', 'striped', 'open', 'solid', 'striped', 'open', 'solid', 'striped', 'open', 'solid', 'striped', 'open']
 
 
 var Cards = dispatch();
@@ -12,12 +12,12 @@ function dispatch() {
     while (symbol.length > 0) {
         for (var i = 12; i > 0; i--) {
             var cardN = {};
-            cardN.shapeNumver = shapeNumber[Math.floor(Math.random() * shapeNumber.length)];
+            cardN.shapeNumber = shapeNumber[Math.floor(Math.random() * shapeNumber.length)];
             var indexShape = shapeNumber.indexOf(cardN.shapeNumber);
             shapeNumber.splice(indexShape, 1);
-            cardN.border = border[Math.floor(Math.random() * border.length)];
-            var indexborder = border.indexOf(cardN.border);
-            border.splice(indexborder, 1);
+            cardN.shading = shading[Math.floor(Math.random() * shading.length)];
+            var indexborder = shading.indexOf(cardN.shading);
+            shading.splice(indexborder, 1);
             cardN.symbol = symbol[Math.floor(Math.random() * symbol.length)];
             var indexSymbol = symbol.indexOf(cardN.symbol);
             symbol.splice(indexSymbol, 1);
@@ -27,22 +27,11 @@ function dispatch() {
             if (cardRet.indexOf(cardN) < 0) {
                 cardRet.push(cardN);
             }
-        } return cardRet;
+        }
     }
+    return cardRet;
 }
 function isMatch(card1, card2, card3) {
-    console.log(card1.symbol);
-    console.log(card1.shapeNumber);
-    console.log(card1.shading);
-    console.log(card1.color);
-    console.log(card2.symbol);
-    console.log(card2.shapeNumber);
-    console.log(card2.shading);
-    console.log(card2.color);
-    console.log(card3.symbol);
-    console.log(card3.shapeNumber);
-    console.log(card3.shading);
-    console.log(card3.color);
     var diffShape = 0;
     var diffSymbol = 0;
     var diffColor = 0;
