@@ -33,21 +33,21 @@ class Card extends React.Component {
                 color: this.props.color,
                 shading: this.props.shading
             },
-            isClicked: this.props.isClicked
+            isClicked: false
         }
         this.handleClick = this.handleClick.bind(this);
     }
     handleClick() {
         this.setState({
-            isClicked: !this.state.isClicked
+            isClicked: true
         }, function() {
             this.props.handleClick(this.state.cardInformation);    
         });
     }
     componentWillReceiveProps(newProps) {
-        if(newProps.isClicked !== this.state.isClicked) {
+        if(newProps.isClicked === 'clear') {
             this.setState({
-                isClicked: newProps.isClicked
+                isClicked: false
             });
         }
     }
@@ -75,7 +75,8 @@ class Board extends React.Component {
         this.state = {
             cardArray: this.generated,
             clickedCards: 0,
-            clickedCardsArray: []
+            clickedCardsArray: [],
+            isClicked: ''
         }
     }
     handleClick(cardInformation) {
@@ -84,7 +85,8 @@ class Board extends React.Component {
         newArray.push(newCard);
         this.setState({
             clickedCards: this.state.clickedCards + 1,
-            clickedCardsArray: newArray
+            clickedCardsArray: newArray,
+            isClicked: 'process'
         });
     }
     componentDidUpdate() {
@@ -95,13 +97,14 @@ class Board extends React.Component {
             }
             this.setState({
                 clickedCards: 0,
-                clickedCardsArray: []
+                clickedCardsArray: [],
+                isClicked: 'clear'
             });
         }
     }
     render() {
         const cards = this.state.cardArray.map(
-            (card, index) => <Card isClicked={false} handleClick={this.handleClick} key={index} objId={card} shapeNumber={card.shapeNumber} symbol={card.symbol} color={card.color} shading={card.shading} />
+            (card, index) => <Card isClicked={this.state.isClicked} handleClick={this.handleClick} key={index} objId={card} shapeNumber={card.shapeNumber} symbol={card.symbol} color={card.color} shading={card.shading} />
         )
         return (
             <div id="board">
