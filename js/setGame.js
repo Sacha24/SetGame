@@ -23,21 +23,21 @@ class Header extends React.Component {
         )
     }
 }
-class CompletedSets extends React.Component {
-    constructor (props) {
-        super (props)
-    }
+// class CompletedSets extends React.Component {
+//     constructor (props) {
+//         super (props)
+//     }
     
-    render () {
-        return (
-            <div>
-                <span attributes = {this.props.done[0]}></span>
-                <span attributes = {this.props.done[1]}></span>
-                <span attributes = {this.props.done[2]}></span>
-            </div>
-        )
-    }
-}
+//     render () {
+//         return (
+//             <div>
+//                 <span attributes = {this.props.done[0]}></span>
+//                 <span attributes = {this.props.done[1]}></span>
+//                 <span attributes = {this.props.done[2]}></span>
+//             </div>
+//         )
+//     }
+// }
 class Card extends React.Component {
     constructor(props) {
         super(props);
