@@ -7,7 +7,7 @@ class Card extends React.Component {
     }
     render() {
         // const shapes = this.props.
-        return (
+        return(
             <Shape symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>
         );
     }
@@ -24,7 +24,7 @@ class Board extends React.Component {
         const cards = this.props.cardArray.map(
             (card) => <Card key={card} id={card} shapeNumber={} symbol={} color={} shading={} />
         )
-        return (
+        return(
             <div id="board">
                 {cards}
             </div>
@@ -34,12 +34,12 @@ class Board extends React.Component {
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state ={
 
         }
     }
     render() {
-        return (
+        return(
             <div>
                 <Header></Header>
                 <Board></Board>
