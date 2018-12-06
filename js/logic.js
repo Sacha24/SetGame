@@ -2,6 +2,7 @@ var setGame = {};
 var shapeNumber = [1,2,3,1,2,3,1,2,3,1,2,3];
 var symbol=['menorah','snowman','deer','menorah','snowman','deer','menorah','snowman','deer','menorah','snowman','deer'];
 var color=['red','green','purple','red','green','purple','red','green','purple','red','green','purple'];
+var shading=['solid','striped','open']
 
 var Cards= dispatch()
 
@@ -30,7 +31,7 @@ function isMatch(card1, card2, card3) {
 
     card1.shapeNumber != card2.shapeNumber ? null : diffShape++;
     card1.shapeNumber != card3.shapeNumber ? null : diffShape++;
-    card1.shapeNumber != card3.shapeNumber ? null : diffShape++;
+    card2.shapeNumber != card3.shapeNumber ? null : diffShape++;
 
     card1.symbol != card2.symbol ? null : diffSymbol++;
     card2.symbol != card3.symbol ? null : diffSymbol++;
