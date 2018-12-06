@@ -22,6 +22,21 @@ class Header extends React.Component {
         )
     }
 }
+class CompletedSets extends React.Component {
+    constructor (props) {
+        super (props)
+    }
+    
+    render () {
+        return (
+            <div>
+                <span attributes = {this.props.done[0]}></span>
+                <span attributes = {this.props.done[1]}></span>
+                <span attributes = {this.props.done[2]}></span>
+            </div>
+        )
+    }
+}
 class Card extends React.Component {
     constructor(props) {
         super(props);
@@ -50,7 +65,7 @@ class Board extends React.Component {
     }
     render() {
         const cards = this.props.cardArray.map(
-            (card) => <Card key={card} id={card} shapeNumber={this.state.cardArray} symbol={"diamonds"} color={"purple"} shading={"striped"} />
+            (card) => <Card key={card} id={card} shapeNumber={this.state.cardArray} symbol={"diamonds"} color={"purple"} shading={"striped"}/>
         )
         return (
             <div id="board">
@@ -63,15 +78,22 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cardArray: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+            cardArray: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+            doneSet: {}
         }
+    }
+    storeCardArray (completedSet) {
+        this.setState ({
+            doneSet: completedSet
+        })
+
     }
     render() {
         return (
             <div>
                 <Header></Header>
-                <Board cardArray={this.state.cardArray}></Board>
-                {/* <CompletedSets></CompletedSets> */}
+                <Board cardArray={this.state.cardArray} handleClick = {this.storeCardArray}></Board>
+                <CompletedSets done = {this.state.doneSet}></CompletedSets>
             </div>
         );
     }
