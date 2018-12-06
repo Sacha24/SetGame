@@ -64,13 +64,5 @@ function isMatch(card1, card2, card3) {
     card2.diffborder != card3.diffborder ? null : diffborder++;
     card1.diffborder != card3.diffborder ? null : diffborder++;
 
-<<<<<<< HEAD
-    if (((diffShape == 0 || diffShape == 3) && (diffSymbol == 0 || diffSymbol == 3)) && ((diffColor == 0 || diffColor == 3) && (diffborder == 0 || diffborder == 3))) {
-        return true;
-    } else {
-        return false;
-    }
-=======
     return diffColor + diffSymbol + diffShape + diffborder == 0 ? true : false;
->>>>>>> 55a394576a855b7f10cea79f9e86d062941361c3
 }

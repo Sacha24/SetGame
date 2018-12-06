@@ -193,6 +193,13 @@ class CompletedSets extends React.Component {
     }
 
 }
+class WinDiv extends React.Component {
+    render() {
+        return(
+            <div>You won! you discovered 4 sets</div>
+        );
+    }
+}
 class App extends React.Component {
     constructor (props) {
         super (props)
@@ -215,6 +222,9 @@ class App extends React.Component {
         return (
             <div>
                 <Header></Header>
+                { this.state.completed.length === 4 &&
+                <WinDiv/>
+                }
                 <Board handleMatch={this.copyCompleted}></Board>
                 <CompletedSets set={this.state.completed}></CompletedSets>
             </div>

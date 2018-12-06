@@ -47,13 +47,10 @@ body{
     height: 50px;
     display:inline-block;
     margin: 1%;
-<<<<<<< HEAD
-=======
     border-radius: 10%;
     padding:12px;
     
 
->>>>>>> d8aee6dd99b0a79116d403a69738947be42373e0
 }
 .deer {
     background-image: url(../images/reindeer.png);
@@ -75,11 +72,7 @@ body{
     background-repeat: no-repeat;
 }
 .red {
-<<<<<<< HEAD
-    background-color: rgb(118, 118, 197);
-=======
     background-color: rgb(149, 149, 212);
->>>>>>> 55a394576a855b7f10cea79f9e86d062941361c3
 }
 .green {
     background-color: green;
