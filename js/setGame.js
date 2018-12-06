@@ -27,6 +27,12 @@ class Card extends React.Component {
         super(props);
         this.state = {
             shapeNumber: this.props.shapeNumber,
+            cardInformation: {
+                shapeNumber: this.props.shapeNumber,
+                symbol: this.props.symbol,
+                color: this.props.color,
+                shading: this.props.shading
+            },
             isClicked: false
         }
         this.handleClick = this.handleClick.bind(this);
@@ -35,7 +41,7 @@ class Card extends React.Component {
         this.setState({
             isClicked: !this.state.isClicked
         }, function() {
-            this.props.handleClick(this);    
+            this.props.handleClick(this.state.cardInformation);    
         });
     }
     render() {
@@ -125,9 +131,9 @@ class Board extends React.Component {
             clickedCardsArray: []
         }
     }
-    handleClick(card) {
+    handleClick(cardInformation) {
         var newArray = this.state.clickedCardsArray.slice();
-        var newCard = card;
+        var newCard = cardInformation;
         newArray.push(newCard);
         this.setState({
             clickedCards: this.state.clickedCards + 1,
@@ -136,12 +142,9 @@ class Board extends React.Component {
     }
     componentDidUpdate() {
         if(this.state.clickedCards === 3) {
-            console.log(this.state.clickedCardsArray[0]);
-            console.log(this.state.clickedCardsArray[1]);
-            console.log(this.state.clickedCardsArray[2]);
             var wasMatch =isMatch(this.state.clickedCardsArray[0], this.state.clickedCardsArray[1], this.state.clickedCardsArray[2] );
-            console.log(wasMatch);
-            if(true) {
+            console.log('was match is: ' + wasMatch);
+            if(wasMatch) {
                 this.props.handleMatch(this.state.clickedCardsArray);
             }
             this.setState({
@@ -166,8 +169,14 @@ class CompletedSets extends React.Component {
         super (props)
     }
     render () {
+        console.log(this.props.set);
         const matchedSets = this.props.set.map(
-            (card) => <span key = {card}>{card}</span>
+            (cardSet, index) =>
+            <div key={index}>
+                <Card shapeNumber={cardSet[0].shapeNumber} symbol={cardSet[0].symbol} color={cardSet[0].color} shading={cardSet[0].shading} />
+                <Card shapeNumber={cardSet[1].shapeNumber} symbol={cardSet[1].symbol} color={cardSet[1].color} shading={cardSet[1].shading} />
+                <Card shapeNumber={cardSet[2].shapeNumber} symbol={cardSet[2].symbol} color={cardSet[2].color} shading={cardSet[2].shading} />
+            </div>
         )
         return (
             <div>
@@ -187,18 +196,20 @@ class App extends React.Component {
         }
     }
     copyCompleted (completedSet) {
+        console.log(completedSet);
         var newArray = this.state.completed.slice();
-        newArray.push(completedSet)
+        newArray.push(completedSet);
+        console.log(newArray);
         this.setState ( {
             completed: newArray
-        })
+        });
     }
     render() {
         return (
             <div>
                 <Header></Header>
-                <Board handleMatch = {this.copyCompleted}></Board>
-                <CompletedSets set = {this.state.completed}></CompletedSets>
+                <Board handleMatch={this.copyCompleted}></Board>
+                <CompletedSets set={this.state.completed}></CompletedSets>
             </div>
         );
     }
