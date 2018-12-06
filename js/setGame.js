@@ -8,8 +8,9 @@ class Shape extends React.Component {
         }
     }
     render () {
+        console.log(this.state.symbol);
         return (
-            <div className="shape" symbol = {this.state.symbol} color = {this.state.color} shading = {this.state.shading}></div>
+            <div className={`shape ${this.state.symbol} ${this.state.color} ${this.state.shading}`} symbol = {this.state.symbol} color = {this.state.color} shading = {this.state.shading}></div>
         )
     }
 }
@@ -47,9 +48,6 @@ class Card extends React.Component {
     render() {
         var i =0;
         var shapeArr = Array(this.state.shapeNumber).fill(<Shape key={i++} symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>);
-        // const shapes = shapeArr.map(
-        //     () => 
-        // );
         return (
             <div className='card'>
                 {shapeArr}
@@ -64,62 +62,62 @@ class Board extends React.Component {
         this.state = {
             cardArray: [{
                 shapeNumber: 1,
-                symbol: 'diamonds',
+                symbol: 'menorah',
                 color: 'purple',
                 shading: 'solid'
             }, {
                 shapeNumber: 2,
-                symbol: 'squiggles',
+                symbol: 'snowman',
                 color: 'green',
                 shading: 'striped'
             }, {
                 shapeNumber: 3,
-                symbol: 'ovals',
+                symbol: 'deer',
                 color: 'red',
                 shading: 'open'
             }, {
                 shapeNumber: 1,
-                symbol: 'ovals',
+                symbol: 'deer',
                 color: 'green',
                 shading: 'striped'
             }, {
                 shapeNumber: 3,
-                symbol: 'squiggles',
+                symbol: 'snowman',
                 color: 'purple',
                 shading: 'solid'
             }, {
                 shapeNumber: 2,
-                symbol: 'ovals',
+                symbol: 'deer',
                 color: 'purple',
                 shading: 'open'
             }, {
                 shapeNumber: 3,
-                symbol: 'diamonds',
+                symbol: 'menorah',
                 color: 'green',
                 shading: 'striped'
             }, {
                 shapeNumber: 1,
-                symbol: 'squiggles',
+                symbol: 'snowman',
                 color: 'red',
                 shading: 'open'
             }, {
                 shapeNumber: 2,
-                symbol: 'diamonds',
+                symbol: 'menorah',
                 color: 'purple',
                 shading: 'striped'
             }, {
                 shapeNumber: 3,
-                symbol: 'ovals',
+                symbol: 'deer',
                 color: 'green',
                 shading: 'solid'
             }, {
                 shapeNumber: 2,
-                symbol: 'squiggles',
+                symbol: 'snowman',
                 color: 'purple',
                 shading: 'open'
             }, {
                 shapeNumber: 1,
-                symbol: 'diamonds',
+                symbol: 'menorah',
                 color: 'purple',
                 shading: 'solid'
             }]
