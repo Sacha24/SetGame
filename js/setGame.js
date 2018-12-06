@@ -45,12 +45,12 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cardArray: this.props.cardArray
+            cardArray: this.props.cardArray,
         }
     }
     render() {
         const cards = this.props.cardArray.map(
-            (card) => <Card key={card} id={card} shapeNumber={this.state.cardArray} symbol={"diamonds"} color={"purple"} shading={"striped"} />
+            (card) => <Card key={card} id={card} shapeNumber={['1']} symbol={"diamonds"} color={"purple"} shading={"striped"} />
         )
         return (
             <div id="board">
