@@ -9,7 +9,7 @@ class Shape extends React.Component {
     }
     render () {
         return (
-            <div className="container" symbol = {this.props.symbol} color = {this.props.color} shading = {this.props.shading}></div>
+            <div className="shape" symbol = {this.state.symbol} color = {this.state.color} shading = {this.state.shading}></div>
         )
     }
 }
@@ -30,12 +30,14 @@ class Card extends React.Component {
         }
     }
     render() {
-        const shapes = this.props.shapeNumber.map(
-            () => <Shape symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>
-        );
+        var i =0;
+        var shapeArr = Array(this.state.shapeNumber).fill(<Shape key={i++} symbol={this.props.symbol} color={this.props.color} shading={this.props.shading}></Shape>);
+        // const shapes = shapeArr.map(
+        //     () => 
+        // );
         return (
             <div className='card'>
-                {shapes}
+                {shapeArr}
             </div>
         );
     }
@@ -45,12 +47,72 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cardArray: this.props.cardArray
+            cardArray: [{
+                shapeNumber: 1,
+                symbol: 'diamonds',
+                color: 'purple',
+                shading: 'solid'
+            }, {
+                shapeNumber: 2,
+                symbol: 'squiggles',
+                color: 'green',
+                shading: 'striped'
+            }, {
+                shapeNumber: 3,
+                symbol: 'ovals',
+                color: 'red',
+                shading: 'open'
+            }, {
+                shapeNumber: 1,
+                symbol: 'ovals',
+                color: 'green',
+                shading: 'striped'
+            }, {
+                shapeNumber: 3,
+                symbol: 'squiggles',
+                color: 'purple',
+                shading: 'solid'
+            }, {
+                shapeNumber: 2,
+                symbol: 'ovals',
+                color: 'purple',
+                shading: 'open'
+            }, {
+                shapeNumber: 3,
+                symbol: 'diamonds',
+                color: 'green',
+                shading: 'striped'
+            }, {
+                shapeNumber: 1,
+                symbol: 'squiggles',
+                color: 'red',
+                shading: 'open'
+            }, {
+                shapeNumber: 2,
+                symbol: 'diamonds',
+                color: 'purple',
+                shading: 'striped'
+            }, {
+                shapeNumber: 3,
+                symbol: 'ovals',
+                color: 'green',
+                shading: 'solid'
+            }, {
+                shapeNumber: 2,
+                symbol: 'squiggles',
+                color: 'purple',
+                shading: 'open'
+            }, {
+                shapeNumber: 1,
+                symbol: 'diamonds',
+                color: 'purple',
+                shading: 'solid'
+            }]
         }
     }
     render() {
-        const cards = this.props.cardArray.map(
-            (card) => <Card key={card} id={card} shapeNumber={this.state.cardArray} symbol={"diamonds"} color={"purple"} shading={"striped"} />
+        const cards = this.state.cardArray.map(
+            (card, index) => <Card key={index} objId={card} shapeNumber={[card.shapeNumber]} symbol={card.symbol} color={card.color} shading={card.shading} />
         )
         return (
             <div id="board">
@@ -60,17 +122,11 @@ class Board extends React.Component {
     }
 }
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cardArray: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
-        }
-    }
     render() {
         return (
             <div>
                 <Header></Header>
-                <Board cardArray={this.state.cardArray}></Board>
+                <Board></Board>
                 {/* <CompletedSets></CompletedSets> */}
             </div>
         );
